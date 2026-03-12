@@ -7,14 +7,14 @@ import com.willfp.eco.util.toNiceString
 import com.willfp.ecoshop.plugin
 import org.bukkit.command.CommandSender
 
-object CommandReload: Subcommand(
+object CommandReload : Subcommand(
     plugin,
     "reload",
     "ecoshop.command.reload",
     false
 ) {
     override fun onExecute(sender: CommandSender, args: List<String>) {
-        val runnable: Runnable = {
+        val runnable = Runnable {
             sender.sendMessage(
                 plugin.langYml.getMessage("reloaded", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
                     .replace("%time%", plugin.reloadWithTime().toNiceString())
